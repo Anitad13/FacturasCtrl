@@ -14,6 +14,7 @@ namespace FacturasCtrl.Web.Data
         {
         }
 
+
         public DbSet<Manager> Managers { get; set; }
 
         public DbSet<Banco> Bancos { get; set; }
