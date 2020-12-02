@@ -6,7 +6,7 @@ namespace FacturasCtrl.Web.Data.Entities
 {
     public class InstruccionesPago
     {
-        public int Codigo { get; set; }
+        public int Id { get; set; }
 
         [Display(Name = "Concepto")]
 
@@ -15,12 +15,12 @@ namespace FacturasCtrl.Web.Data.Entities
         public string Concepto { get; set; }
 
         [Display(Name = "Código Fiduciaria")]
-        public string codigofidu { get; set; }
+        public string Codigofidu { get; set; }
 
 
         //Relaciones
 
-
+        public Factura Facturas { get; set; }
 
 
     }

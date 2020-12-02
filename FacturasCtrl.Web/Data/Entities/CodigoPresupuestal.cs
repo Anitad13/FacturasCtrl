@@ -6,7 +6,7 @@ namespace FacturasCtrl.Web.Data.Entities
 {
     public class CodigoPresupuestal
     {
-        public int Codcodigo { get; set; }
+        public int Id { get; set; }
 
         [Display(Name = "Numeral")]
 
@@ -26,7 +26,7 @@ namespace FacturasCtrl.Web.Data.Entities
 
         //Relaciones
 
-
+        public ICollection<Dfactura> Dfacturas { get; set; }
 
 
     }

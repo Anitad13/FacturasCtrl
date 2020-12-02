@@ -6,32 +6,35 @@ namespace FacturasCtrl.Web.Data.Entities
 {
     public class Dfactura
     {
-        public int dfacodigo { get; set; }
+        public int Id { get; set; }
 
         [Display(Name = "Factura")]
 
         [Required(ErrorMessage = "The field {0} is mandatory.")]
 
-        public string dfafaccod { get; set; }
+        public string FacturaId { get; set; }
 
         [Display(Name = "Proyecto")]
         [Required(ErrorMessage = "The field {0} is mandatory.")]
-        public int dfaprocod { get; set; }
+        public int ProyectoId { get; set; }
 
         [Display(Name = "Cód. Presupuestal")]
         [Required(ErrorMessage = "The field {0} is mandatory.")]
-        public int dfacodpre { get; set; }
+        public int CodigopresupuestalId { get; set; }
 
         [Display(Name = "Valor")]
         [Required(ErrorMessage = "The field {0} is mandatory.")]
-        public double dfavalor { get; set; }
+        public double Valor { get; set; }
 
 
 
         //Relaciones
 
+       
+        public CodigoPresupuestal CodigoPresupuestals { get; set; }
 
+        public Factura Facturas { get; set; }
 
-
+        public Proyecto Proyectos { get; set; }
     }
 }

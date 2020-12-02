@@ -6,7 +6,7 @@ namespace FacturasCtrl.Web.Data.Entities
 {
     public class Prioridad
     {
-        public int Codigo { get; set; }
+        public int Id { get; set; }
 
         [Display(Name = "Prioridad")]
 
@@ -14,12 +14,12 @@ namespace FacturasCtrl.Web.Data.Entities
 
         public string Descripcion { get; set; }
 
-       
+
 
 
         //Relaciones
 
-
+        public ICollection<Factura> Facturas { get; set; }
 
 
     }

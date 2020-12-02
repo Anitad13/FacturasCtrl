@@ -6,103 +6,105 @@ namespace FacturasCtrl.Web.Data.Entities
 {
     public class Proveedor
     {
-        public int procodigo { get; set; }
+        public int Id { get; set; }
 
         [Display(Name = "Tipo de documento")]
 
         [Required(ErrorMessage = "The field {0} is mandatory.")]
 
-        public int protipdoc { get; set; }
+        public int TipoDocumId { get; set; }
 
         [Display(Name = "Céudla o Nit")]
 
         [Required(ErrorMessage = "The field {0} is mandatory.")]
-        public string pronticel { get; set; }
+        public string Pronticel { get; set; }
 
         [Display(Name = "Digito de verificación")]
 
-        public int prondigv { get; set; }
+        public int Prondigv { get; set; }
 
         [Display(Name = "Nombre")]
 
         [Required(ErrorMessage = "The field {0} is mandatory.")]
-        public string pronombre { get; set; }
+        public string Pronombre { get; set; }
 
         [Display(Name = "Dirección")]
 
         [Required(ErrorMessage = "The field {0} is mandatory.")]
-        public string prodirec { get; set; }
+        public string Prodirec { get; set; }
 
         [Display(Name = "Ciudad")]
 
         [Required(ErrorMessage = "The field {0} is mandatory.")]
-        public int prociudad { get; set; }
+        public int CiudadId { get; set; }
 
         [Display(Name = "Teléfono")]
 
         [Required(ErrorMessage = "The field {0} is mandatory.")]
-        public string protel1 { get; set; }
+        public string Protel1 { get; set; }
 
 
         [Display(Name = "Teléfono2")]
 
-        public string protel2 { get; set; }
+        public string Protel2 { get; set; }
 
 
        
         [Display(Name = "Mail")]
 
-        public string promail { get; set; }
+        public string Promail { get; set; }
 
 
         [Display(Name = "Contacto")]
 
-        public string procontac { get; set; }
+        public string Procontac { get; set; }
 
         [Display(Name = "Tipo")]
 
         [Required(ErrorMessage = "The field {0} is mandatory.")]
-        public int protipo { get; set; }
+        public int Protipo { get; set; }
 
         //1;Activo;2;Inactivo
         [Display(Name = "Estado")]
 
-        public int proestad { get; set; }
+        public int Proestad { get; set; }
 
         //1;Simplificado;2;Común
         [Display(Name = "Clase")]
 
-        public int proclase { get; set; }
+        public int Proclase { get; set; }
 
         
         [Display(Name = "Soporte RUT")]
 
-        public bool prorut { get; set; }
+        public bool Prorut { get; set; }
 
         [Display(Name = "Gran contribuyente")]
 
-        public bool progran { get; set; }
+        public bool Progran { get; set; }
 
         [Display(Name = "Autoretenedor")]
 
-        public bool proauto { get; set; }
+        public bool Proauto { get; set; }
 
         //para los proveedores permanentes
         [Display(Name = "Mes de renovación de contrato")]
 
-        public int profemes { get; set; }
+        public int Profemes { get; set; }
 
         [Display(Name = "Día de renovación de contrato")]
 
-        public int profedia { get; set; }
+        public int Profedia { get; set; }
 
         [Display(Name = "Proceso que ingresa el proveedor")]
 
-        public int proingre { get; set; }
+        public int Proingre { get; set; }
 
         //Relaciones
 
-
+       
+        public Ciudad Ciudads { get; set; }
+        public Factura Facturas { get; set; }
 
 
     }

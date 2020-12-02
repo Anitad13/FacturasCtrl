@@ -24,11 +24,10 @@ namespace FacturasCtrl.Web.Data
         public DbSet<Ciudad> Ciudades { get; set; }
         public DbSet<CodigoPresupuestal> CodigoPresupuestals { get; set; }
 
-        public DbSet<Conceptospago> Conceptospagos { get; set; }
-
+      
         public DbSet<Ctasxprov> Ctasxprovs { get; set; }
      
-        public DbSet<Datosfactura> Datosfacturas { get; set; }
+        public DbSet<Factura> Facturas { get; set; }
         
         public DbSet<Dfactura> Dfacturas { get; set; }
 

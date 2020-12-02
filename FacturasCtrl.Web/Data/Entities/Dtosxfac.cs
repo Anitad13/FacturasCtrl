@@ -6,27 +6,27 @@ namespace FacturasCtrl.Web.Data.Entities
 {
     public class Dtosxfac
     {
-        public int dtocodigo { get; set; }
+        public int Id { get; set; }
 
         [Display(Name = "Factura")]
 
         [Required(ErrorMessage = "The field {0} is mandatory.")]
 
-        public int dtofaccod { get; set; }
+        public int FacturaId { get; set; }
 
         [Display(Name = "Concepto")]
 
         [Required(ErrorMessage = "The field {0} is mandatory.")]
 
-        public string dtoconcep { get; set; }
+        public string Concepto { get; set; }
 
         [Display(Name = "Valor")]
-        public double dtovalor { get; set; }
+        public double Valor { get; set; }
 
 
         //Relaciones
 
-
+        public Factura Facturas { get; set; }
 
 
     }

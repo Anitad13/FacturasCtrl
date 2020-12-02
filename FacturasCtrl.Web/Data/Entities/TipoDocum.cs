@@ -6,21 +6,21 @@ namespace FacturasCtrl.Web.Data.Entities
 {
     public class Tipodocum
     {
-        public int tdcodigo { get; set; }
+        public int Id { get; set; }
 
         [Display(Name = "Tipo")]
 
         [Required(ErrorMessage = "The field {0} is mandatory.")]
 
-        public string tdtipo { get; set; }
+        public string Tdtipo { get; set; }
 
         [Display(Name = "Código Fiduciaria")]
-        public string tdcodfid { get; set; }
+        public string Tdcodfid { get; set; }
 
 
         //Relaciones
 
-
+        public ICollection<Benefgt> Benefgts { get; set; }
 
 
     }

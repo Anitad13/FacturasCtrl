@@ -6,21 +6,21 @@ namespace FacturasCtrl.Web.Data.Entities
 {
     public class Proyecto
     {
-        public int procodigo { get; set; }
+        public int Id { get; set; }
 
         [Display(Name = "Proyecto")]
 
         [Required(ErrorMessage = "The field {0} is mandatory.")]
 
-        public string pronombre { get; set; }
+        public string Pronombre { get; set; }
 
         [Display(Name = "Letra inicial")]
-        public string proinicial { get; set; }
+        public string Proinicial { get; set; }
 
 
         //Relaciones
 
-
+        public ICollection<Dfactura> Dfacturas { get; set; }
 
 
     }

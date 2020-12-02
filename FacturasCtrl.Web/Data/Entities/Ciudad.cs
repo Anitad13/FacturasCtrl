@@ -6,7 +6,7 @@ namespace FacturasCtrl.Web.Data.Entities
 {
     public class Ciudad
     {
-        public int Ciucodigo { get; set; }
+        public int Id { get; set; }
 
         [Display(Name = "Nombre")]
 
@@ -14,12 +14,11 @@ namespace FacturasCtrl.Web.Data.Entities
 
         public string Ciunombre { get; set; }
 
-       
+
 
         //Relaciones
 
-
-
-
+       
+        public ICollection<Proveedor> proveedors { get; set; }
     }
 }
