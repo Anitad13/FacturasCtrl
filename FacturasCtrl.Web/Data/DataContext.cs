@@ -23,8 +23,7 @@ namespace FacturasCtrl.Web.Data
 
         public DbSet<Ciudad> Ciudades { get; set; }
         public DbSet<CodigoPresupuestal> CodigoPresupuestals { get; set; }
-
-      
+              
         public DbSet<Ctasxprov> Ctasxprovs { get; set; }
      
         public DbSet<Factura> Facturas { get; set; }
@@ -34,6 +33,8 @@ namespace FacturasCtrl.Web.Data
         public DbSet<Dtosxfac> Dtosxfacs { get; set; }
 
         public DbSet<InstruccionesPago> InstruccionesPagos { get; set; }
+
+        public DbSet<Personal> Personals { get; set; }
 
         public DbSet<Prioridad> Prioridads { get; set; }
 

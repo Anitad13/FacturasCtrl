@@ -1,4 +1,5 @@
 ﻿using FacturasCtrl.Web.Data;
+using FacturasCtrl.Web.Helpers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -38,7 +39,8 @@ namespace FacturasCtrl.Web
                 cfg.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
 
-
+            services.AddTransient<SeedDb>();
+            services.AddScoped<IUserHelper, UserHelper>();
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
