@@ -106,6 +106,8 @@ namespace FacturasCtrl.Web.Data.Entities
         public Ciudad Ciudads { get; set; }
         public Factura Facturas { get; set; }
 
+        public Tipodocum Tipodocums { get; set; }
+
 
     }
 }

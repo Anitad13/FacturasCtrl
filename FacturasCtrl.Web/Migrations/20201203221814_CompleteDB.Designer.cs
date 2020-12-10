@@ -4,14 +4,16 @@ using FacturasCtrl.Web.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FacturasCtrl.Web.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20201203221814_CompleteDB")]
+    partial class CompleteDB
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -285,7 +287,7 @@ namespace FacturasCtrl.Web.Migrations
                     b.ToTable("Managers");
                 });
 
-            modelBuilder.Entity("FacturasCtrl.Web.Data.Entities.MyPersonal", b =>
+            modelBuilder.Entity("FacturasCtrl.Web.Data.Entities.Personal", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -297,7 +299,7 @@ namespace FacturasCtrl.Web.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("MyPersonals");
+                    b.ToTable("Personals");
                 });
 
             modelBuilder.Entity("FacturasCtrl.Web.Data.Entities.Prioridad", b =>
@@ -370,8 +372,6 @@ namespace FacturasCtrl.Web.Migrations
 
                     b.HasIndex("FacturasId");
 
-                    b.HasIndex("TipoDocumId");
-
                     b.ToTable("Proveedors");
                 });
 
@@ -429,12 +429,16 @@ namespace FacturasCtrl.Web.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int?>("FacturaId");
+
                     b.Property<string>("Tdcodfid");
 
                     b.Property<string>("Tdtipo")
                         .IsRequired();
 
                     b.HasKey("Id");
+
+                    b.HasIndex("FacturaId");
 
                     b.ToTable("Tipodocums");
                 });
@@ -637,7 +641,7 @@ namespace FacturasCtrl.Web.Migrations
                         .HasForeignKey("TipoctaId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("FacturasCtrl.Web.Data.Entities.Tipodocum", "Tipodocums")
+                    b.HasOne("FacturasCtrl.Web.Data.Entities.Tipodocum")
                         .WithMany("Benefgts")
                         .HasForeignKey("TipodocumId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -708,7 +712,7 @@ namespace FacturasCtrl.Web.Migrations
                         .HasForeignKey("UserId");
                 });
 
-            modelBuilder.Entity("FacturasCtrl.Web.Data.Entities.MyPersonal", b =>
+            modelBuilder.Entity("FacturasCtrl.Web.Data.Entities.Personal", b =>
                 {
                     b.HasOne("FacturasCtrl.Web.Data.Entities.User", "User")
                         .WithMany()
@@ -725,11 +729,13 @@ namespace FacturasCtrl.Web.Migrations
                     b.HasOne("FacturasCtrl.Web.Data.Entities.Factura", "Facturas")
                         .WithMany("Proveedors")
                         .HasForeignKey("FacturasId");
+                });
 
-                    b.HasOne("FacturasCtrl.Web.Data.Entities.Tipodocum", "Tipodocums")
-                        .WithMany("Proveedors")
-                        .HasForeignKey("TipoDocumId")
-                        .OnDelete(DeleteBehavior.Cascade);
+            modelBuilder.Entity("FacturasCtrl.Web.Data.Entities.Tipodocum", b =>
+                {
+                    b.HasOne("FacturasCtrl.Web.Data.Entities.Factura")
+                        .WithMany("Tipodocums")
+                        .HasForeignKey("FacturaId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

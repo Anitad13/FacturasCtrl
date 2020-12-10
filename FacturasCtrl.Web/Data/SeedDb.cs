@@ -11,27 +11,30 @@ namespace FacturasCtrl.Web.Data
         private readonly DataContext _context;
         private readonly IUserHelper _userHelper;
 
+
         public SeedDb(
             DataContext context,
             IUserHelper userHelper)
         {
             _context = context;
             _userHelper = userHelper;
+
         }
 
         public async Task SeedAsync()
         {
             await _context.Database.EnsureCreatedAsync();
-
             await CheckRoles();
-            var manager = await CheckUserAsync("1010", "Alicia", "Cortés", "aliscortes@hotmail.com", "Calle 5 No 2-24", "Admin");
-            var customer = await CheckUserAsync("2020", "Juan", "Zuluaga", "aliscortes13@gmail.com", "Calle 5 No 2-24", "Customer");
+            var manager = await CheckUserAsync("1010", "Juan", "Zuluaga", "aliscortes@hotmail.com", "350 634 2747", "Calle Luna Calle Sol", "Admin");
+            var customer = await CheckUserAsync("2020", "Juan", "Zuluaga", "aliscortes13@gmail.com", "350 634 2747", "Calle Luna Calle Sol", "Customer");
+
+
+            await CheckBancosAsync();
+            await CheckCiudadsAsync();
+          
+            await CheckManagerAsync(manager);
 
         
-            await CheckMypersonsAsync(customer);
-            await CheckManagerAsync(manager);
-          
-
         }
 
         private async Task CheckRoles()
@@ -40,14 +43,7 @@ namespace FacturasCtrl.Web.Data
             await _userHelper.CheckRoleAsync("Customer");
         }
 
-        private async Task<User> CheckUserAsync(
-              string document,
-              string firstName,
-              string lastName,
-              string email,
-              string address,
-              string role         )
-
+        private async Task<User> CheckUserAsync(string document, string firstName, string lastName, string email, string phone, string address, string role)
         {
             var user = await _userHelper.GetUserByEmailAsync(email);
             if (user == null)
@@ -58,10 +54,9 @@ namespace FacturasCtrl.Web.Data
                     LastName = lastName,
                     Email = email,
                     UserName = email,
+                    PhoneNumber = phone,
                     Address = address,
-                    Document = document,
-                
-
+                    Document = document
                 };
 
                 await _userHelper.AddUserAsync(user, "123456");
@@ -71,6 +66,7 @@ namespace FacturasCtrl.Web.Data
             return user;
         }
 
+       
 
         private async Task CheckManagerAsync(User user)
         {
@@ -81,17 +77,23 @@ namespace FacturasCtrl.Web.Data
             }
         }
 
-
-
-        private async Task CheckMypersonsAsync(User user)
+        private async Task CheckBancosAsync()
         {
-
+            if (!_context.Bancos.Any())
             {
-                if (!_context.Personals.Any())
-                {
-                    _context.Personals.Add(new Personal { User = user });
-                    await _context.SaveChangesAsync();
-                }
+                _context.Bancos.Add(new Banco { Bannombre = "BBVA", Bancodfid = "13" });
+                _context.Bancos.Add(new Banco { Bannombre = "Banco AV Villas", Bancodfid = "52" });
+                await _context.SaveChangesAsync();
+            }
+        }
+
+        private async Task CheckCiudadsAsync()
+        {
+            if (!_context.Ciudads.Any())
+            {
+                _context.Ciudads.Add(new Ciudad { Ciunombre = "Bogotá" });
+                _context.Ciudads.Add(new Ciudad { Ciunombre = "Barranquilla" });
+                await _context.SaveChangesAsync();
             }
         }
 

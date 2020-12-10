@@ -21,6 +21,7 @@ namespace FacturasCtrl.Web.Data.Entities
         //Relaciones
 
         public ICollection<Benefgt> Benefgts { get; set; }
+        public ICollection<Proveedor> Proveedors { get; set; }
 
 
     }

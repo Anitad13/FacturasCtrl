@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using FacturasCtrl.Web.Data.Entities;
-using FacturasCtrl.Web.Models;
 using System.Threading.Tasks;
+using FacturasCtrl.Web.Models;
 
 namespace FacturasCtrl.Web.Helpers
 {
@@ -21,8 +21,5 @@ namespace FacturasCtrl.Web.Helpers
 
         Task LogoutAsync();
 
-        Task<bool> DeleteUserAsync(string email);
-
-        Task<IdentityResult> UpdateUserAsync(User user);
     }
 }

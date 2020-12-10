@@ -67,7 +67,9 @@ namespace FacturasCtrl.Web.Data.Entities
 
         public Sucursal Sucursals { get; set; }
 
-            
+        public Tipodocum Tipodocums { get; set; }
+
+        
 
 
     }

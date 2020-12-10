@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using FacturasCtrl.Web.Data;
 using FacturasCtrl.Web.Data.Entities;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FacturasCtrl.Web.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class CiudadsController : Controller
     {
         private readonly DataContext _context;

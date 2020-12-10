@@ -113,9 +113,7 @@ namespace FacturasCtrl.Web.Data.Entities
         public ICollection<Benefgt> Benefgts { get; set; }
         public ICollection<Proveedor> Proveedors { get; set; }
 
-        public ICollection<Tipodocum> Tipodocums { get; set; }
-
-        public ICollection<Dfactura> Dfacturas { get; set; }
+       public ICollection<Dfactura> Dfacturas { get; set; }
 
         public ICollection<Dtosxfac> Dtosxfacs { get; set; }
 
