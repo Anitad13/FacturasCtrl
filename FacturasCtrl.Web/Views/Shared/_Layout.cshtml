@@ -26,19 +26,46 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">FacturasCtrl.Web</a>
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Personal.Web</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
                     @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                     {
-                       
-                        <li><a asp-area="" asp-controller="Managers" asp-action="Index">Managers</a></li>
-                        <li><a asp-area="" asp-controller="Ciudads" asp-action="Index">Ciudades</a></li>
-                        <li><a asp-area="" asp-controller="Bancos" asp-action="Index">Bancos</a></li>
+                        <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                        <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
+                        <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                      
+                    }
+                </ul>
+                <ul class="nav navbar-nav">
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                    {
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                Configuración <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a asp-area="" asp-controller="Bancos" asp-action="Index">Bancos</a></li>
+                                <li><a asp-area="" asp-controller="Ciudads" asp-action="Index">Ciudades</a></li>
+                                <li class="divider"></li>
+                                <li><a asp-area="" asp-controller="Managers" asp-action="Index">Managers</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                Facturas <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a asp-area="" asp-controller="Bancos" asp-action="Index">Ingresa Factura</a></li>
+                                <li><a asp-area="" asp-controller="Ciudads" asp-action="Index">Pagos</a></li>
+                                <li class="divider"></li>
+                                <li><a asp-area="" asp-controller="Managers" asp-action="Index">Generar Planilla</a></li>
+                            </ul>
+                        </li>
+
+
                     }
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
@@ -52,9 +79,10 @@
                         <li><a asp-area="" asp-controller="Account" asp-action="Login">Login</a></li>
                     }
                 </ul>
-            </div>
 
-         </div>
+
+            </div>
+        </div>
     </nav>
 
     <partial name="_CookieConsentPartial" />
@@ -63,7 +91,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; 2020 - FacturasCtrl.Web</p>
+            <p>&copy; 2020 - Personal.Web</p>
         </footer>
     </div>
 
