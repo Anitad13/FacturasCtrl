@@ -1,0 +1,130 @@
+﻿@model FacturasCtrl.Web.Data.Entities.Proveedor
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>Proveedor</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="TipoDocumId" class="control-label"></label>
+                <select asp-for="TipoDocumId" class="form-control" asp-items="ViewBag.TipoDocumId"></select>
+                <span asp-validation-for="TipoDocumId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pronticel" class="control-label"></label>
+                <input asp-for="Pronticel" class="form-control" />
+                <span asp-validation-for="Pronticel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Prondigv" class="control-label"></label>
+                <input asp-for="Prondigv" class="form-control" />
+                <span asp-validation-for="Prondigv" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pronombre" class="control-label"></label>
+                <input asp-for="Pronombre" class="form-control" />
+                <span asp-validation-for="Pronombre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Prodirec" class="control-label"></label>
+                <input asp-for="Prodirec" class="form-control" />
+                <span asp-validation-for="Prodirec" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CiudadId" class="control-label"></label>
+                <select asp-for="CiudadId" class="form-control" asp-items="ViewBag.CiudadId"></select>
+                <span asp-validation-for="CiudadId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Protel1" class="control-label"></label>
+                <input asp-for="Protel1" class="form-control" />
+                <span asp-validation-for="Protel1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Protel2" class="control-label"></label>
+                <input asp-for="Protel2" class="form-control" />
+                <span asp-validation-for="Protel2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Promail" class="control-label"></label>
+                <input asp-for="Promail" class="form-control" />
+                <span asp-validation-for="Promail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Procontac" class="control-label"></label>
+                <input asp-for="Procontac" class="form-control" />
+                <span asp-validation-for="Procontac" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TipproveesId" class="control-label"></label>
+                <input asp-for="TipproveesId" class="form-control" />
+                <span asp-validation-for="TipproveesId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Proestad" class="control-label"></label>
+                <input asp-for="Proestad" class="form-control" />
+                <span asp-validation-for="Proestad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Proclase" class="control-label"></label>
+                <input asp-for="Proclase" class="form-control" />
+                <span asp-validation-for="Proclase" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="Prorut" /> @Html.DisplayNameFor(model => model.Prorut)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="Progran" /> @Html.DisplayNameFor(model => model.Progran)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="Proauto" /> @Html.DisplayNameFor(model => model.Proauto)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Profemes" class="control-label"></label>
+                <input asp-for="Profemes" class="form-control" />
+                <span asp-validation-for="Profemes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Profedia" class="control-label"></label>
+                <input asp-for="Profedia" class="form-control" />
+                <span asp-validation-for="Profedia" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Proingre" class="control-label"></label>
+                <input asp-for="Proingre" class="form-control" />
+                <span asp-validation-for="Proingre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

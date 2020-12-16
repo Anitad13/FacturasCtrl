@@ -1,0 +1,93 @@
+﻿@model IEnumerable<FacturasCtrl.Web.Data.Entities.Proveedor>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Pronticel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prondigv)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pronombre)
+            </th>
+           
+            <th>
+                @Html.DisplayNameFor(model => model.TipproveesId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Proestad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Proclase)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prorut)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Progran)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Proauto)
+            </th>
+        
+            <th>
+                @Html.DisplayNameFor(model => model.Tipodocums)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pronticel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prondigv)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pronombre)
+            </td>
+         
+            <td>
+                @Html.DisplayFor(modelItem => item.TipproveesId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Proestad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Proclase)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prorut)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Progran)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Proauto)
+            </td>
+         
+            <td>
+                @Html.DisplayFor(modelItem => item.Tipodocums.Tdtipo)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

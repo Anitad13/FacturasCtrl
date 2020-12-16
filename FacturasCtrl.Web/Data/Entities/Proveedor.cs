@@ -62,7 +62,7 @@ namespace FacturasCtrl.Web.Data.Entities
         [Display(Name = "Tipo")]
 
         [Required(ErrorMessage = "The field {0} is mandatory.")]
-        public int Protipo { get; set; }
+        public int TipproveesId { get; set; }
 
         //1;Activo;2;Inactivo
         [Display(Name = "Estado")]
@@ -107,6 +107,8 @@ namespace FacturasCtrl.Web.Data.Entities
         public Factura Facturas { get; set; }
 
         public Tipodocum Tipodocums { get; set; }
+
+        public Tipprovee Tipprovees { get; set; }
 
 
     }

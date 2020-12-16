@@ -44,6 +44,7 @@ namespace FacturasCtrl.Web.Data
         public DbSet<Tipocta> Tipoctas { get; set; }
 
         public DbSet<Tipodocum> Tipodocums { get; set; }
+        public DbSet<Tipprovee> Tipprovees { get; set; }
 
         public DbSet<Manager> Managers { get; set; }
 
