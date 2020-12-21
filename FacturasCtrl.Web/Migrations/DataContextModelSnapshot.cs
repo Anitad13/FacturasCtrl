@@ -94,7 +94,21 @@ namespace FacturasCtrl.Web.Migrations
                     b.ToTable("Ciudads");
                 });
 
-            modelBuilder.Entity("FacturasCtrl.Web.Data.Entities.CodigoPresupuestal", b =>
+            modelBuilder.Entity("FacturasCtrl.Web.Data.Entities.Clase", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Clanombre")
+                        .IsRequired();
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Clases");
+                });
+
+            modelBuilder.Entity("FacturasCtrl.Web.Data.Entities.Codigopresupuestal", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -112,7 +126,7 @@ namespace FacturasCtrl.Web.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("CodigoPresupuestals");
+                    b.ToTable("Codigopresupuestals");
                 });
 
             modelBuilder.Entity("FacturasCtrl.Web.Data.Entities.Ctasxprov", b =>
@@ -191,6 +205,20 @@ namespace FacturasCtrl.Web.Migrations
                     b.ToTable("Dtosxfacs");
                 });
 
+            modelBuilder.Entity("FacturasCtrl.Web.Data.Entities.Estado", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Estnombre")
+                        .IsRequired();
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Estados");
+                });
+
             modelBuilder.Entity("FacturasCtrl.Web.Data.Entities.Factura", b =>
                 {
                     b.Property<int>("Id")
@@ -228,7 +256,7 @@ namespace FacturasCtrl.Web.Migrations
 
                     b.Property<string>("InstruccionesEspeciales");
 
-                    b.Property<int>("InstruccionesPagoId");
+                    b.Property<int>("InstruccionespagoId");
 
                     b.Property<string>("NoFactura")
                         .IsRequired();
@@ -245,12 +273,16 @@ namespace FacturasCtrl.Web.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("InstruccionespagoId");
+
                     b.HasIndex("PrioridadId");
+
+                    b.HasIndex("ProveedorId");
 
                     b.ToTable("Facturas");
                 });
 
-            modelBuilder.Entity("FacturasCtrl.Web.Data.Entities.InstruccionesPago", b =>
+            modelBuilder.Entity("FacturasCtrl.Web.Data.Entities.Instruccionespago", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -261,13 +293,9 @@ namespace FacturasCtrl.Web.Migrations
                     b.Property<string>("Concepto")
                         .IsRequired();
 
-                    b.Property<int?>("FacturasId");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("FacturasId");
-
-                    b.ToTable("InstruccionesPagos");
+                    b.ToTable("Instruccionespagos");
                 });
 
             modelBuilder.Entity("FacturasCtrl.Web.Data.Entities.Manager", b =>
@@ -283,21 +311,6 @@ namespace FacturasCtrl.Web.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Managers");
-                });
-
-            modelBuilder.Entity("FacturasCtrl.Web.Data.Entities.MyPersonal", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("UserId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("MyPersonals");
                 });
 
             modelBuilder.Entity("FacturasCtrl.Web.Data.Entities.Prioridad", b =>
@@ -322,18 +335,16 @@ namespace FacturasCtrl.Web.Migrations
 
                     b.Property<int>("CiudadId");
 
-                    b.Property<int?>("FacturasId");
+                    b.Property<int>("ClaseId");
+
+                    b.Property<int>("EstadoId");
 
                     b.Property<bool>("Proauto");
-
-                    b.Property<int>("Proclase");
 
                     b.Property<string>("Procontac");
 
                     b.Property<string>("Prodirec")
                         .IsRequired();
-
-                    b.Property<int>("Proestad");
 
                     b.Property<int>("Profedia");
 
@@ -360,17 +371,21 @@ namespace FacturasCtrl.Web.Migrations
 
                     b.Property<string>("Protel2");
 
-                    b.Property<int>("Protipo");
-
                     b.Property<int>("TipoDocumId");
+
+                    b.Property<int>("TipproveeId");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CiudadId");
 
-                    b.HasIndex("FacturasId");
+                    b.HasIndex("ClaseId");
+
+                    b.HasIndex("EstadoId");
 
                     b.HasIndex("TipoDocumId");
+
+                    b.HasIndex("TipproveeId");
 
                     b.ToTable("Proveedors");
                 });
@@ -437,6 +452,20 @@ namespace FacturasCtrl.Web.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Tipodocums");
+                });
+
+            modelBuilder.Entity("FacturasCtrl.Web.Data.Entities.Tipprovee", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Tipnombre")
+                        .IsRequired();
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Tipprovees");
                 });
 
             modelBuilder.Entity("FacturasCtrl.Web.Data.Entities.User", b =>
@@ -633,7 +662,7 @@ namespace FacturasCtrl.Web.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("FacturasCtrl.Web.Data.Entities.Tipocta", "Tipoctas")
-                        .WithMany("benefgts")
+                        .WithMany("Benefgts")
                         .HasForeignKey("TipoctaId")
                         .OnDelete(DeleteBehavior.Cascade);
 
@@ -663,7 +692,7 @@ namespace FacturasCtrl.Web.Migrations
 
             modelBuilder.Entity("FacturasCtrl.Web.Data.Entities.Dfactura", b =>
                 {
-                    b.HasOne("FacturasCtrl.Web.Data.Entities.CodigoPresupuestal", "CodigoPresupuestals")
+                    b.HasOne("FacturasCtrl.Web.Data.Entities.Codigopresupuestal", "Codigopresupuestals")
                         .WithMany("Dfacturas")
                         .HasForeignKey("CodigopresupuestalId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -688,17 +717,20 @@ namespace FacturasCtrl.Web.Migrations
 
             modelBuilder.Entity("FacturasCtrl.Web.Data.Entities.Factura", b =>
                 {
+                    b.HasOne("FacturasCtrl.Web.Data.Entities.Instruccionespago", "Instruccionespagos")
+                        .WithMany("Facturas")
+                        .HasForeignKey("InstruccionespagoId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
                     b.HasOne("FacturasCtrl.Web.Data.Entities.Prioridad", "Prioridads")
                         .WithMany("Facturas")
                         .HasForeignKey("PrioridadId")
                         .OnDelete(DeleteBehavior.Cascade);
-                });
 
-            modelBuilder.Entity("FacturasCtrl.Web.Data.Entities.InstruccionesPago", b =>
-                {
-                    b.HasOne("FacturasCtrl.Web.Data.Entities.Factura", "Facturas")
-                        .WithMany("InstruccionesPagos")
-                        .HasForeignKey("FacturasId");
+                    b.HasOne("FacturasCtrl.Web.Data.Entities.Proveedor", "Proveedors")
+                        .WithMany("Facturas")
+                        .HasForeignKey("ProveedorId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("FacturasCtrl.Web.Data.Entities.Manager", b =>
@@ -708,27 +740,31 @@ namespace FacturasCtrl.Web.Migrations
                         .HasForeignKey("UserId");
                 });
 
-            modelBuilder.Entity("FacturasCtrl.Web.Data.Entities.MyPersonal", b =>
-                {
-                    b.HasOne("FacturasCtrl.Web.Data.Entities.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
-                });
-
             modelBuilder.Entity("FacturasCtrl.Web.Data.Entities.Proveedor", b =>
                 {
                     b.HasOne("FacturasCtrl.Web.Data.Entities.Ciudad", "Ciudads")
-                        .WithMany("proveedors")
+                        .WithMany("Proveedors")
                         .HasForeignKey("CiudadId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("FacturasCtrl.Web.Data.Entities.Factura", "Facturas")
+                    b.HasOne("FacturasCtrl.Web.Data.Entities.Clase", "Clases")
                         .WithMany("Proveedors")
-                        .HasForeignKey("FacturasId");
+                        .HasForeignKey("ClaseId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("FacturasCtrl.Web.Data.Entities.Estado", "Estados")
+                        .WithMany("Proveedors")
+                        .HasForeignKey("EstadoId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("FacturasCtrl.Web.Data.Entities.Tipodocum", "Tipodocums")
                         .WithMany("Proveedors")
                         .HasForeignKey("TipoDocumId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("FacturasCtrl.Web.Data.Entities.Tipprovee", "Tipprovees")
+                        .WithMany("Proveedors")
+                        .HasForeignKey("TipproveeId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

@@ -19,6 +19,6 @@ namespace FacturasCtrl.Web.Data.Entities
         //Relaciones
 
        
-        public ICollection<Proveedor> proveedors { get; set; }
+        public ICollection<Proveedor> Proveedors { get; set; }
     }
 }

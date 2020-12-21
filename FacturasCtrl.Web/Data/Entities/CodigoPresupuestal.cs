@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace FacturasCtrl.Web.Data.Entities
 {
-    public class CodigoPresupuestal
+    public class Codigopresupuestal
     {
         public int Id { get; set; }
 

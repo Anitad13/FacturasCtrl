@@ -22,7 +22,7 @@ namespace FacturasCtrl.Web.Data.Entities
 
         public ICollection<Ctasxprov> Ctasxprovs { get; set; }
 
-        public ICollection<Benefgt> benefgts { get; set; }
+        public ICollection<Benefgt> Benefgts { get; set; }
 
        
 

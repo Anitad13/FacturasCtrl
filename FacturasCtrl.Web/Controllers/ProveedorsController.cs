@@ -22,7 +22,7 @@ namespace FacturasCtrl.Web.Controllers
         // GET: Proveedors
         public async Task<IActionResult> Index()
         {
-            var dataContext = _context.Proveedors.Include(p => p.Ciudads).Include(p => p.Tipodocums);
+            var dataContext = _context.Proveedors.Include(p => p.Ciudads).Include(p => p.Clases).Include(p => p.Estados).Include(p => p.Tipodocums).Include(p => p.Tipprovees);
             return View(await dataContext.ToListAsync());
         }
 
@@ -36,7 +36,10 @@ namespace FacturasCtrl.Web.Controllers
 
             var proveedor = await _context.Proveedors
                 .Include(p => p.Ciudads)
+                .Include(p => p.Clases)
+                .Include(p => p.Estados)
                 .Include(p => p.Tipodocums)
+                .Include(p => p.Tipprovees)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (proveedor == null)
             {
@@ -50,7 +53,10 @@ namespace FacturasCtrl.Web.Controllers
         public IActionResult Create()
         {
             ViewData["CiudadId"] = new SelectList(_context.Ciudads, "Id", "Ciunombre");
+            ViewData["ClaseId"] = new SelectList(_context.Clases, "Id", "Clanombre");
+            ViewData["EstadoId"] = new SelectList(_context.Estados, "Id", "Estnombre");
             ViewData["TipoDocumId"] = new SelectList(_context.Tipodocums, "Id", "Tdtipo");
+            ViewData["TipproveeId"] = new SelectList(_context.Tipprovees, "Id", "Tipnombre");
             return View();
         }
 
@@ -59,7 +65,7 @@ namespace FacturasCtrl.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,TipoDocumId,Pronticel,Prondigv,Pronombre,Prodirec,CiudadId,Protel1,Protel2,Promail,Procontac,Protipo,Proestad,Proclase,Prorut,Progran,Proauto,Profemes,Profedia,Proingre")] Proveedor proveedor)
+        public async Task<IActionResult> Create([Bind("Id,TipoDocumId,Pronticel,Prondigv,Pronombre,Prodirec,CiudadId,Protel1,Protel2,Promail,Procontac,TipproveeId,EstadoId,ClaseId,Prorut,Progran,Proauto,Profemes,Profedia,Proingre")] Proveedor proveedor)
         {
             if (ModelState.IsValid)
             {
@@ -68,7 +74,10 @@ namespace FacturasCtrl.Web.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["CiudadId"] = new SelectList(_context.Ciudads, "Id", "Ciunombre", proveedor.CiudadId);
+            ViewData["ClaseId"] = new SelectList(_context.Clases, "Id", "Clanombre", proveedor.ClaseId);
+            ViewData["EstadoId"] = new SelectList(_context.Estados, "Id", "Estnombre", proveedor.EstadoId);
             ViewData["TipoDocumId"] = new SelectList(_context.Tipodocums, "Id", "Tdtipo", proveedor.TipoDocumId);
+            ViewData["TipproveeId"] = new SelectList(_context.Tipprovees, "Id", "Tipnombre", proveedor.TipproveeId);
             return View(proveedor);
         }
 
@@ -86,7 +95,10 @@ namespace FacturasCtrl.Web.Controllers
                 return NotFound();
             }
             ViewData["CiudadId"] = new SelectList(_context.Ciudads, "Id", "Ciunombre", proveedor.CiudadId);
+            ViewData["ClaseId"] = new SelectList(_context.Clases, "Id", "Clanombre", proveedor.ClaseId);
+            ViewData["EstadoId"] = new SelectList(_context.Estados, "Id", "Estnombre", proveedor.EstadoId);
             ViewData["TipoDocumId"] = new SelectList(_context.Tipodocums, "Id", "Tdtipo", proveedor.TipoDocumId);
+            ViewData["TipproveeId"] = new SelectList(_context.Tipprovees, "Id", "Tipnombre", proveedor.TipproveeId);
             return View(proveedor);
         }
 
@@ -95,7 +107,7 @@ namespace FacturasCtrl.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,TipoDocumId,Pronticel,Prondigv,Pronombre,Prodirec,CiudadId,Protel1,Protel2,Promail,Procontac,Protipo,Proestad,Proclase,Prorut,Progran,Proauto,Profemes,Profedia,Proingre")] Proveedor proveedor)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,TipoDocumId,Pronticel,Prondigv,Pronombre,Prodirec,CiudadId,Protel1,Protel2,Promail,Procontac,TipproveeId,EstadoId,ClaseId,Prorut,Progran,Proauto,Profemes,Profedia,Proingre")] Proveedor proveedor)
         {
             if (id != proveedor.Id)
             {
@@ -123,7 +135,10 @@ namespace FacturasCtrl.Web.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["CiudadId"] = new SelectList(_context.Ciudads, "Id", "Ciunombre", proveedor.CiudadId);
+            ViewData["ClaseId"] = new SelectList(_context.Clases, "Id", "Clanombre", proveedor.ClaseId);
+            ViewData["EstadoId"] = new SelectList(_context.Estados, "Id", "Estnombre", proveedor.EstadoId);
             ViewData["TipoDocumId"] = new SelectList(_context.Tipodocums, "Id", "Tdtipo", proveedor.TipoDocumId);
+            ViewData["TipproveeId"] = new SelectList(_context.Tipprovees, "Id", "Tipnombre", proveedor.TipproveeId);
             return View(proveedor);
         }
 
@@ -137,7 +152,10 @@ namespace FacturasCtrl.Web.Controllers
 
             var proveedor = await _context.Proveedors
                 .Include(p => p.Ciudads)
+                .Include(p => p.Clases)
+                .Include(p => p.Estados)
                 .Include(p => p.Tipodocums)
+                .Include(p => p.Tipprovees)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (proveedor == null)
             {

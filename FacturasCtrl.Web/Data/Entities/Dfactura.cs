@@ -31,7 +31,7 @@ namespace FacturasCtrl.Web.Data.Entities
         //Relaciones
 
        
-        public CodigoPresupuestal CodigoPresupuestals { get; set; }
+        public Codigopresupuestal Codigopresupuestals { get; set; }
 
         public Factura Facturas { get; set; }
 

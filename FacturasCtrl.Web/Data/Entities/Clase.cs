@@ -1,27 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace FacturasCtrl.Web.Data.Entities
 {
-    public class Instruccionespago
+    public class Clase
     {
         public int Id { get; set; }
 
-        [Display(Name = "Concepto")]
+        [Display(Name = "Clase")]
 
         [Required(ErrorMessage = "The field {0} is mandatory.")]
 
-        public string Concepto { get; set; }
+        public string Clanombre { get; set; }
 
-        [Display(Name = "Código Fiduciaria")]
-        public string Codigofidu { get; set; }
 
 
         //Relaciones
 
-             
-        public ICollection<Factura> Facturas { get; set; }
 
+        public ICollection<Proveedor> Proveedors { get; set; }
     }
 }

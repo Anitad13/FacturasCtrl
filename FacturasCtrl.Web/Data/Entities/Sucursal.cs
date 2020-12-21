@@ -21,7 +21,7 @@ namespace FacturasCtrl.Web.Data.Entities
         //Relaciones
         public ICollection<Ctasxprov> Ctasxprovs { get; set; }
       
-           public ICollection<Benefgt> Benefgts { get; set; }
+        public ICollection<Benefgt> Benefgts { get; set; }
 
     }
 }

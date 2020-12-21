@@ -61,19 +61,16 @@
                 <span asp-validation-for="Procontac" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="TipproveesId" class="control-label"></label>
-                <input asp-for="TipproveesId" class="form-control" />
-                <span asp-validation-for="TipproveesId" class="text-danger"></span>
+                <label asp-for="TipproveeId" class="control-label"></label>
+                <select asp-for="TipproveeId" class ="form-control" asp-items="ViewBag.TipproveeId"></select>
             </div>
             <div class="form-group">
-                <label asp-for="Proestad" class="control-label"></label>
-                <input asp-for="Proestad" class="form-control" />
-                <span asp-validation-for="Proestad" class="text-danger"></span>
+                <label asp-for="EstadoId" class="control-label"></label>
+                <select asp-for="EstadoId" class ="form-control" asp-items="ViewBag.EstadoId"></select>
             </div>
             <div class="form-group">
-                <label asp-for="Proclase" class="control-label"></label>
-                <input asp-for="Proclase" class="form-control" />
-                <span asp-validation-for="Proclase" class="text-danger"></span>
+                <label asp-for="ClaseId" class="control-label"></label>
+                <select asp-for="ClaseId" class ="form-control" asp-items="ViewBag.ClaseId"></select>
             </div>
             <div class="form-group">
                 <div class="checkbox">

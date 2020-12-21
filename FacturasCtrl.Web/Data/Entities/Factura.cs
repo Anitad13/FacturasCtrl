@@ -48,7 +48,7 @@ namespace FacturasCtrl.Web.Data.Entities
 
         [Display(Name = "Instrucciones Pago")]
        
-        public int InstruccionesPagoId { get; set; }
+        public int InstruccionespagoId { get; set; }
 
         [Display(Name = "Instrucciones especiales")]
       
@@ -111,13 +111,17 @@ namespace FacturasCtrl.Web.Data.Entities
 
         //Relaciones
         public ICollection<Benefgt> Benefgts { get; set; }
-        public ICollection<Proveedor> Proveedors { get; set; }
-
-       public ICollection<Dfactura> Dfacturas { get; set; }
+          
 
         public ICollection<Dtosxfac> Dtosxfacs { get; set; }
 
-        public ICollection<InstruccionesPago> InstruccionesPagos { get; set; }
+     
+        public Instruccionespago Instruccionespagos { get; set; }
+
+     
+        public ICollection<Dfactura> Dfacturas { get; set; }
+
+        public Proveedor Proveedors { get; set; }
 
         public Prioridad Prioridads { get; set; }
 

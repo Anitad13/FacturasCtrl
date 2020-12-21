@@ -18,21 +18,28 @@ namespace FacturasCtrl.Web.Data
         public DbSet<Banco> Bancos { get; set; }
 
         public DbSet<Benefgt> Benefgts { get; set; }
-
+     
         public DbSet<Ciudad> Ciudads { get; set; }
-        public DbSet<CodigoPresupuestal> CodigoPresupuestals { get; set; }
+
+        public DbSet<Clase> Clases { get; set; }
+
+        public DbSet<Codigopresupuestal> Codigopresupuestals { get; set; }
               
         public DbSet<Ctasxprov> Ctasxprovs { get; set; }
-     
-        public DbSet<Factura> Facturas { get; set; }
-        
+
         public DbSet<Dfactura> Dfacturas { get; set; }
 
         public DbSet<Dtosxfac> Dtosxfacs { get; set; }
 
-        public DbSet<InstruccionesPago> InstruccionesPagos { get; set; }
+        public DbSet<Estado> Estados { get; set; }
 
+        public DbSet<Factura> Facturas { get; set; }
+        
       
+        public DbSet<Instruccionespago> Instruccionespagos { get; set; }
+
+        public DbSet<Manager> Managers { get; set; }
+
         public DbSet<Prioridad> Prioridads { get; set; }
 
         public DbSet<Proveedor> Proveedors { get; set; }
@@ -41,14 +48,14 @@ namespace FacturasCtrl.Web.Data
 
         public DbSet<Sucursal> Sucursals { get; set; }
 
+
         public DbSet<Tipocta> Tipoctas { get; set; }
 
         public DbSet<Tipodocum> Tipodocums { get; set; }
         public DbSet<Tipprovee> Tipprovees { get; set; }
 
-        public DbSet<Manager> Managers { get; set; }
 
-    }
+      }
 
     }
 

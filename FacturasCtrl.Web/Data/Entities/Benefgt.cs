@@ -19,8 +19,10 @@ namespace FacturasCtrl.Web.Data.Entities
         [Required(ErrorMessage = "The field {0} is mandatory.")]
         public string Bgtbenef { get; set; }
 
+
         [Display(Name = "Tipo de documento")]
         public int TipodocumId { get; set; }
+
 
         [Display(Name = "Cédula/Nit")]
         
