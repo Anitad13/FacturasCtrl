@@ -27,48 +27,20 @@
             <th>
                 @Html.DisplayNameFor(model => model.Protel1)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Protel2)
-            </th>
+          
             <th>
                 @Html.DisplayNameFor(model => model.Promail)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Procontac)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Prorut)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Progran)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Proauto)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Profemes)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Profedia)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Proingre)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Ciudads.Ciunombre)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Tipodocums.Tdtipo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Tipprovees.Tipnombre)
-            </th>
+         
+        
+          
             <th>
                 @Html.DisplayNameFor(model => model.Estados.Estnombre)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Clases.Clanombre)
-            </th>
+           
             <th></th>
         </tr>
     </thead>
@@ -90,52 +62,24 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Protel1)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Protel2)
-            </td>
+          
             <td>
                 @Html.DisplayFor(modelItem => item.Promail)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Procontac)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Prorut)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Progran)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Proauto)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Profemes)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Profedia)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Proingre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Ciudads.Ciunombre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Tipodocums.Tdtipo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Tipprovees.Tipnombre)
-            </td>
+           
+          
+            
             <td>
                 @Html.DisplayFor(modelItem => item.Estados.Estnombre)
             </td>
+           
             <td>
-                @Html.DisplayFor(modelItem => item.Clases.Clanombre)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning"><i class="glyphicon glyphicon-pencil"></i></a>
+                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info"><i class="glyphicon glyphicon-align-justify"></i></a>
+                <button data-id="@item.Id" class="btn btn-danger deleteItem" data-toggle="modal" data-target="#deleteDialog"><i class="glyphicon glyphicon-trash"></i></button>
             </td>
         </tr>
 }
