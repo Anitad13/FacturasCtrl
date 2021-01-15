@@ -9,6 +9,14 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+
+<form asp-controller="Bancos" asp-action="Index" method="get">
+    <p>
+        Nombre: <input type="text" name="SearchString" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+
 <table class="table">
     <thead>
         <tr>
@@ -41,3 +49,6 @@
 }
     </tbody>
 </table>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

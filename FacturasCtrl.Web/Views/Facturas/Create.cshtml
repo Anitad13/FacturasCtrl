@@ -1,0 +1,141 @@
+﻿@model FacturasCtrl.Web.Data.Entities.Factura
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<h4>Factura</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Facplanilla" class="control-label"></label>
+                <input asp-for="Facplanilla" class="form-control" />
+                <span asp-validation-for="Facplanilla" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FechaRecibido" class="control-label"></label>
+                <input asp-for="FechaRecibido" class="form-control" />
+                <span asp-validation-for="FechaRecibido" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NoFactura" class="control-label"></label>
+                <input asp-for="NoFactura" class="form-control" />
+                <span asp-validation-for="NoFactura" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProveedorId" class="control-label"></label>
+                <select asp-for="ProveedorId" class ="form-control" asp-items="ViewBag.ProveedorId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Facvalsiniva" class="control-label"></label>
+                <input asp-for="Facvalsiniva" class="form-control" />
+                <span asp-validation-for="Facvalsiniva" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ValorDocumento" class="control-label"></label>
+                <input asp-for="ValorDocumento" class="form-control" />
+                <span asp-validation-for="ValorDocumento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Concepto" class="control-label"></label>
+                <input asp-for="Concepto" class="form-control" />
+                <span asp-validation-for="Concepto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FechadePago" class="control-label"></label>
+                <input asp-for="FechadePago" class="form-control" />
+                <span asp-validation-for="FechadePago" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="InstruccionespagoId" class="control-label"></label>
+                <select asp-for="InstruccionespagoId" class ="form-control" asp-items="ViewBag.InstruccionespagoId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="InstruccionesEspeciales" class="control-label"></label>
+                <input asp-for="InstruccionesEspeciales" class="form-control" />
+                <span asp-validation-for="InstruccionesEspeciales" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DocumentoAnexo" class="control-label"></label>
+                <input asp-for="DocumentoAnexo" class="form-control" />
+                <span asp-validation-for="DocumentoAnexo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CuentaOrigen" class="control-label"></label>
+                <input asp-for="CuentaOrigen" class="form-control" />
+                <span asp-validation-for="CuentaOrigen" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PrioridadId" class="control-label"></label>
+                <select asp-for="PrioridadId" class ="form-control" asp-items="ViewBag.PrioridadId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="ObservacionesDTA" class="control-label"></label>
+                <input asp-for="ObservacionesDTA" class="form-control" />
+                <span asp-validation-for="ObservacionesDTA" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ObservacionesDF" class="control-label"></label>
+                <input asp-for="ObservacionesDF" class="form-control" />
+                <span asp-validation-for="ObservacionesDF" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FechaPago" class="control-label"></label>
+                <input asp-for="FechaPago" class="form-control" />
+                <span asp-validation-for="FechaPago" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Facpago" class="control-label"></label>
+                <input asp-for="Facpago" class="form-control" />
+                <span asp-validation-for="Facpago" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Facsucursal" class="control-label"></label>
+                <input asp-for="Facsucursal" class="form-control" />
+                <span asp-validation-for="Facsucursal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Facperrecib" class="control-label"></label>
+                <input asp-for="Facperrecib" class="form-control" />
+                <span asp-validation-for="Facperrecib" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="Facanticipo" /> @Html.DisplayNameFor(model => model.Facanticipo)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="Facimpto" /> @Html.DisplayNameFor(model => model.Facimpto)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="Facnomina" /> @Html.DisplayNameFor(model => model.Facnomina)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

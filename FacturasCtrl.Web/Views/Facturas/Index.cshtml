@@ -1,0 +1,162 @@
+﻿@model IEnumerable<FacturasCtrl.Web.Data.Entities.Factura>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Facplanilla)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaRecibido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NoFactura)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Facvalsiniva)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ValorDocumento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Concepto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechadePago)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InstruccionesEspeciales)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DocumentoAnexo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CuentaOrigen)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ObservacionesDTA)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ObservacionesDF)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaPago)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Facpago)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Facsucursal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Facperrecib)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Facanticipo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Facimpto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Facnomina)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Instruccionespagos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Proveedors)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prioridads)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Facplanilla)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaRecibido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoFactura)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Facvalsiniva)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ValorDocumento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Concepto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechadePago)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InstruccionesEspeciales)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DocumentoAnexo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CuentaOrigen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ObservacionesDTA)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ObservacionesDF)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaPago)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Facpago)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Facsucursal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Facperrecib)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Facanticipo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Facimpto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Facnomina)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Instruccionespagos.Concepto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Proveedors.Prodirec)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prioridads.Descripcion)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning"><i class="glyphicon glyphicon-pencil"></i></a>
+                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info"><i class="glyphicon glyphicon-align-justify"></i></a>
+                <button data-id="@item.Id" class="btn btn-danger deleteItem" data-toggle="modal" data-target="#deleteDialog"><i class="glyphicon glyphicon-trash"></i></button>
+
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

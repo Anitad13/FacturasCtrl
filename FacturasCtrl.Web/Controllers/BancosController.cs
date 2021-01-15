@@ -25,11 +25,29 @@ namespace FacturasCtrl.Web.Controllers
         }
 
         // GET: Bancos
-        public async Task<IActionResult> Index()
+        // public async Task<IActionResult> Index()
+        //{
+        //  return View(await _context.Bancos.ToListAsync());
+        //}
+        // GET: Bancos
+        public async Task<IActionResult> Index(string searchString)
         {
-            return View(await _context.Bancos.ToListAsync());
+            var bancos = from m in _context.Bancos
+                         select m;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                bancos = bancos.Where(s => s.Bannombre.Contains(searchString));
+            }
+
+            return View(await bancos.ToListAsync());
         }
 
+        [HttpPost]
+        public string Index(string searchString, bool notUsed)
+        {
+            return "From [HttpPost]Index: filter on " + searchString;
+        }
         // GET: Bancos/Details/5
         public async Task<IActionResult> Details(int? id)
         {
